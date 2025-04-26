@@ -14,9 +14,11 @@ public class VulnerableApp extends HttpServlet {
         try {
             String user = request.getParameter("user");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test?user=sqluser&password=sqlpassword");
-            Statement stmt = conn.createStatement();
-            // Unsafe query construction
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE username = '" + user + "'");
+            // Use a prepared statement to prevent SQL injection
+            String query = "SELECT * FROM users WHERE username = ?";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, user);
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 response.getWriter().println("User found: " + rs.getString("username"));
             }
