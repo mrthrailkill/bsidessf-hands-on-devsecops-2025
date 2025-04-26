@@ -1,7 +1,7 @@
 ![BSides San Francisco](BSidesSF_2025_MobileHeader_1080x440.jpg "BSides SF 2025")
 
 
-# Shifting Left: A Hands-on Introductory Guide to DevSecOps
+# Shifting Left: A Hands-on Introductory Guide to DevSecOps random garbage
 
 The following repository contains training material on shifting security left for our 2025 workshop at BSides SF.
 
